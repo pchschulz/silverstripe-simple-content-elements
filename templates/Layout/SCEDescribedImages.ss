@@ -3,7 +3,9 @@
 	<% loop $Images %>
 		<div class="describedimage">
 			<% include SCEProcessedImage Lightbox=$Up.Lightbox %>
-			$Content
+			<div class="sce__text">
+				$Content
+			</div>
 		</div>
 	<% end_loop %>
 <% end_if %>
