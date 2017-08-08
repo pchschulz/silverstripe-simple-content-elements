@@ -59,6 +59,10 @@ SCETextImage:
   image_width: 400
   image_height: 300
   image_mode: 'FocusFill'
+SCEDescribedImages_Image:
+  image_width: 400
+  image_height: 300
+  image_mode: 'FocusFill'
 ```
 
 ### Extending / Your own elements

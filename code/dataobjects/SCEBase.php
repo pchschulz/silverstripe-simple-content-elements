@@ -60,9 +60,14 @@ class SCEBase extends DataObject {
 	  return $fields;
 	}
 
-	public function ClassNameForTemplate() {
+	public function ClassNameForTemplate($simple = false) {
 		$class = $this->ClassName;
 		$nice = strtolower(str_replace(['SCE', 'Element'], '', $class));
+
+		if($simple) {
+			return $nice;
+		}
+		
 		return 'sce sce--' . $nice;
 	}
 

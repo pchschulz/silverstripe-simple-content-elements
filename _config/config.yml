@@ -11,3 +11,7 @@ SCEImage:
   image_width: 1024
   image_height: 400
   image_mode: 'PaddedImage'
+SCEDescribedImages_Image:
+  image_width: 400
+  image_height: 300
+  image_mode: 'Fill'
