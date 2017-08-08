@@ -1,0 +1,13 @@
+---
+Name: simple-content-elements
+---
+SCEExtension:
+  remove_content_field: true
+SCETextImageElement:
+  image_width: 400
+  image_height: 300
+  image_mode: 'FocusFill'
+SCEImageElement:
+  image_width: 400
+  image_height: 300
+  image_mode: 'FocusFill'

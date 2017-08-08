@@ -1,0 +1,13 @@
+{
+  "name": "stripeforge/silverstripe-simple-content-elements",
+  "authors": [
+    {
+      "name": "Benedikt Hofstaetter",
+      "email": "info@stripeforge.io"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.3",
+    "silverstripe/cms": "3.x@stable"
+  }
+}

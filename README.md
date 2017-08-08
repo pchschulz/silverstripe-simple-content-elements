@@ -1,0 +1,63 @@
+# Simple Content Elements (SCE)
+
+Adds content elements like a text-, image or text & image element to a page or dataobject.
+The target of this module is to gain more control over the layout and styling of content.
+
+### Usage with pages
+Simply add the extension to the desired page type
+
+```yaml
+MyPage:
+  extensions:
+    - SCEExtension
+```
+
+### Usage with dataobjects
+Again, add the extension to your dataobject
+
+```yaml
+MyObject:
+  extensions:
+    - SCEExtension
+```
+
+After that you need to extend ``SCEElement`` and add a ``has_one`` relation to your dataobject
+
+```php
+private static $has_one = [
+  'MyObject' => 'MyObject',
+];
+```
+
+### Options
+You could set the following inside your yaml config.
+
+**Remove the html editor content field if sce is used**
+```yaml
+SCEExtension:
+  remove_content_field: true
+```
+
+**Define image size and mode**
+```yaml
+SCETextImageElement:
+  image_width: 400
+  image_height: 300
+  image_mode: 'FocusFill'
+SCEImageElement:
+  image_width: 400
+  image_height: 300
+  image_mode: 'FocusFill'
+```
+
+### Templating
+TBD
+
+### Extending / Your own elements
+TBD
+
+### Todo
+- [ ] Versioning
+- [ ] Fluent
+- [ ] Default CSS / SCSS
+- [ ] SS4 support
