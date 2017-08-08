@@ -1,5 +1,5 @@
 <?php
-class SCETextElement extends SCEElement {
+class SCEText extends SCEBase {
 
   private static $singular_name = 'Textelement';
   private static $plural_name = 'Textelemente';

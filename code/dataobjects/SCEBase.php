@@ -1,5 +1,5 @@
 <?php
-class SCEElement extends DataObject {
+class SCEBase extends DataObject {
 
   private static $singular_name = 'Inhaltselement';
   private static $plural_name = 'Inhaltselemente';
@@ -14,6 +14,8 @@ class SCEElement extends DataObject {
 	  'Page' => 'Page',
 	];
 
+	private static $default_sort = 'SortOrder';
+	
 	private static $summary_fields = [
 	  'Title' => 'Titel',
 		'ShowTitle.Nice' => 'Titel anzeigen',
@@ -41,7 +43,13 @@ class SCEElement extends DataObject {
 	  return $fields;
 	}
 
-	public function ContentElementLayout() {
-		return $this->renderWith(__CLASS__);
+	public function ClassNameForTemplate() {
+		$class = $this->ClassName;
+		$nice = str_replace(['SCE', 'Element'], '', $class);
+		return 'sce sce--' . $nice;
+	}
+
+	public function Layout() {
+		return $this->renderWith($this->ClassName);
 	}
 }

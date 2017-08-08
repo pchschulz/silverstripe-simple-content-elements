@@ -29,6 +29,17 @@ private static $has_one = [
 ];
 ```
 
+### Templating
+By default simply include this
+
+```
+<% include SimpleContentElements %>
+```
+
+All content elements are rendered with a template named like their class.
+In those templates you could include ``SCEHeader`` and ``SCEFooter`` at the beginning and end.
+Those includes contain a default wrapper and take care of the title logic (display or not, that's the question)
+
 ### Options
 You could set the following inside your yaml config.
 
@@ -40,18 +51,15 @@ SCEExtension:
 
 **Define image size and mode**
 ```yaml
-SCETextImageElement:
+SCEImage:
   image_width: 400
   image_height: 300
   image_mode: 'FocusFill'
-SCEImageElement:
+SCETextImage:
   image_width: 400
   image_height: 300
   image_mode: 'FocusFill'
 ```
-
-### Templating
-TBD
 
 ### Extending / Your own elements
 TBD
