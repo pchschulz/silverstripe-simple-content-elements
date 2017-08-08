@@ -7,6 +7,7 @@ class SCEElement extends DataObject {
 	private static $db = [
 		'Title' => 'Varchar(255)',
 		'ShowTitle' => 'Boolean',
+		'SortOrder' => 'Int',
 	];
 	
 	private static $has_one = [
@@ -38,5 +39,9 @@ class SCEElement extends DataObject {
 	  $this->extend('updateCMSFields', $fields);
 
 	  return $fields;
+	}
+
+	public function ContentElementLayout() {
+		return $this->renderWith(__CLASS__);
 	}
 }
