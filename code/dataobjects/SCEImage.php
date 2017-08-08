@@ -4,6 +4,10 @@ class SCEImage extends SCEBase {
   private static $singular_name = 'Bildelement';
   private static $plural_name = 'Bildelemente';
 
+  private static $db = [
+  	'Lightbox' => 'Boolean',
+  ];
+  
   private static $has_one = [
     'Image' => 'Image',
   ];
@@ -23,7 +27,8 @@ class SCEImage extends SCEBase {
 	  $fields->addFieldsToTab('Root.Main', [
 	  	UploadField::create('Image', 'Bild')
 		    ->setFolderName('sce')
-		    ->setDisplayFolderName('sce')
+		    ->setDisplayFolderName('sce'),
+		  DropdownField::create('Lightbox', 'In der Lightbox öffnen', [1 => 'Ja', 0 => 'Nein'], 1),
 	  ]);
 
 		$this->extend('updateCMSFields', $fields);

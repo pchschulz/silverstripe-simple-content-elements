@@ -7,6 +7,7 @@ class SCETextImage extends SCEBase {
   private static $db = [
     'Content' => 'HTMLText',
 	  'ImagePosition' => 'Varchar(10)',
+	  'Lightbox' => 'Boolean',
   ];
 
   private static $has_one = [
@@ -28,14 +29,15 @@ class SCETextImage extends SCEBase {
 	public function getCMSFields() {
 	  $fields = parent::getCMSFields();
 	  $fields->addFieldsToTab('Root.Main', [
-		  HtmlEditorField::create('Content', 'Inhalt'),
-	  	UploadField::create('Image', 'Bild')
-		    ->setFolderName('sce')
-		    ->setDisplayFolderName('sce'),
+		  UploadField::create('Image', 'Bild')
+			  ->setFolderName('sce')
+			  ->setDisplayFolderName('sce'),
 		  DropdownField::create('ImagePosition', 'Position des Bildes', [
-		  	'left' => 'Links',
+			  'left' => 'Links',
 			  'right' => 'Rechts',
-		  ])
+		  ]),
+		  DropdownField::create('Lightbox', 'In der Lightbox öffnen', [1 => 'Ja', 0 => 'Nein'], 1),
+		  HtmlEditorField::create('Content', 'Inhalt'),
 	  ]);
 
 		$this->extend('updateCMSFields', $fields);

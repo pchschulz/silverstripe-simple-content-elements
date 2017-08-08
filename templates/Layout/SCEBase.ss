@@ -1,0 +1,2 @@
+<% include SCEHeader %>
+<% include SCEFooter %>

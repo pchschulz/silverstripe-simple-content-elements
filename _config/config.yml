@@ -3,11 +3,11 @@ Name: simple-content-elements
 ---
 SCEExtension:
   remove_content_field: true
-SCETextImageElement:
+SCETextImage:
   image_width: 400
   image_height: 300
   image_mode: 'Fill'
-SCEImageElement:
-  image_width: 400
-  image_height: 300
-  image_mode: 'Fill'
+SCEImage:
+  image_width: 1024
+  image_height: 400
+  image_mode: 'PaddedImage'

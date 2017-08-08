@@ -1,7 +1,7 @@
 <% if $SimpleContentElements %>
-	<section class="simple-content-elements">
+	<article class="simple-content-elements">
 		<% loop $SimpleContentElements %>
 			$Layout
 		<% end_loop %>
-	</section>
+	</article>
 <% end_if %>

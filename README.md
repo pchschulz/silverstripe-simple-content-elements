@@ -65,6 +65,7 @@ SCETextImage:
 TBD
 
 ### Todo
+- [ ] Permissions
 - [ ] Versioning
 - [ ] Fluent
 - [ ] Default CSS / SCSS

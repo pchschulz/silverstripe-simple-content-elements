@@ -17,7 +17,7 @@ class SCEText extends SCEBase {
 	public function getCMSFields() {
 	  $fields = parent::getCMSFields();
 	  $fields->addFieldsToTab('Root.Main', [
-	    HtmlEditorField::create('Content', 'Inhalt')
+	    HtmlEditorField::create('Content', 'Inhalt'),
 	  ]);
 
 		$this->extend('updateCMSFields', $fields);

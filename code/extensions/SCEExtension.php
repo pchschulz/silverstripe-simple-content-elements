@@ -6,18 +6,18 @@ class SCEExtension extends DataExtension {
 	];
 
 	public function updateCMSFields(FieldList $fields) {
-		$field = GridField::create('ContentElements', 'Inhaltselemente', $this->owner->ContentElements(), $fieldGC = SCEGridConfig::create(30, 'SortOrder'));
+		$field = GridField::create('SimpleContentElements', 'Inhaltselemente', $this->owner->SimpleContentElements(), $fieldGC = SCEGridConfig::create(30, 'SortOrder'));
 		$fieldGC->set(['multi']);
 
 		if($fields->dataFieldByName('Content')) {
 			$fields->insertBefore($field, 'Content');
-		} else if($fields->dataFieldByName('Metadata')) {
-			$fields->insertBefore($field, 'Metadata');
+		} else if($fields->dataFieldByName('MenuTitle')) {
+			$fields->insertAfter($field, 'MenuTitle');
 		} else {
-			$fields->push($field);
+			$fields->addFieldToTab('Root.Main', $field);
 		}
 
-		if(self::config()->get('remove_content_field') == true) {
+		if(Config::inst()->get(__CLASS__, 'remove_content_field') == true) {
 		  $fields->removeByName('Content');
 	  }
 	}
