@@ -6,8 +6,8 @@ SCEExtension:
 SCETextImageElement:
   image_width: 400
   image_height: 300
-  image_mode: 'FocusFill'
+  image_mode: 'Fill'
 SCEImageElement:
   image_width: 400
   image_height: 300
-  image_mode: 'FocusFill'
+  image_mode: 'Fill'
