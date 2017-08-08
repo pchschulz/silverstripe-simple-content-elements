@@ -7,6 +7,7 @@ class SCEDescribedImages_Image extends DataObject {
   private static $db = [
   	'Content' => 'HTMLText',
 	  'SortOrder' => 'Int',
+	  'ImagePosition' => 'Varchar(10)',
   ];
 
   private static $has_one = [
@@ -33,6 +34,10 @@ class SCEDescribedImages_Image extends DataObject {
           UploadField::create('Image', 'Bild')
 	          ->setFolderName('sce')
 	          ->setDisplayFolderName('sce'),
+	        DropdownField::create('ImagePosition', 'Position des Bildes', [
+		        'top' => 'Oben',
+		        'bottom' => 'Unten',
+	        ]),
           HtmlEditorField::create('Content', 'Beschreibung')
 	          ->setRows(20)
         )
