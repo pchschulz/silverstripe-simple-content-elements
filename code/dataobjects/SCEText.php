@@ -6,6 +6,7 @@ class SCEText extends SCEBase {
   
   private static $db = [
     'Content' => 'HTMLText',
+	  'CodeLanguage' => 'Varchar(255)',
   ];
 
 	public function getCMSValidator() {
@@ -17,6 +18,11 @@ class SCEText extends SCEBase {
 	public function getCMSFields() {
 	  $fields = parent::getCMSFields();
 	  $fields->addFieldsToTab('Root.Main', [
+	  	DropdownField::create('CodeLanguage', 'Code-Snippet', [
+			  'php' => 'PHP',
+			  'html' => 'HTML',
+			  'c++' => 'C++',
+		  ])->setEmptyString(' '),
 	    HtmlEditorField::create('Content', 'Inhalt'),
 	  ]);
 
