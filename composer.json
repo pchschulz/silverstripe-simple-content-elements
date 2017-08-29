@@ -1,5 +1,5 @@
 {
-  "name": "stripeforge/silverstripe-simple-content-elements",
+  "name": "extensions/silverstripe-simple-content-elements",
   "description": "Adds content elements like a text-, image or text & image element to a page or dataobject",
   "keywords": [
     "silverstripe",
