@@ -6,7 +6,7 @@ class SCEExtension extends DataExtension {
 	];
 
 	public function updateCMSFields(FieldList $fields) {
-		$field = GridField::create('SimpleContentElements', 'Inhaltselemente', $this->owner->SimpleContentElements(), $fieldGC = SCEGridConfig::create(30, 'SortOrder'));
+		$field = GridField::create('SimpleContentElements', 'Inhaltselemente', $this->owner->SimpleContentElements(), $fieldGC = SCEGridConfig::create(50, 'SortOrder'));
 		$fieldGC->set(['multi']);
 
 		if($fields->dataFieldByName('Content')) {
