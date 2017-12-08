@@ -9,16 +9,17 @@ class SCEExtension extends DataExtension {
 		$field = GridField::create('SimpleContentElements', 'Inhaltselemente', $this->owner->SimpleContentElements(), $fieldGC = SCEGridConfig::create(50, 'SortOrder'));
 		$fieldGC->set(['multi']);
 
+		if(Config::inst()->get($this->owner->ClassName, 'sce_remove_content_field') == true) {
+			$fields->removeByName('Content');
+		}
+
 		if($fields->dataFieldByName('Content')) {
-			$fields->insertBefore($field, 'Content');
+			$fields->insertAfter(Tab::create('SCE', 'Inhaltselemente'), 'Main');
+			$fields->addFieldsToTab('Root.SCE', $field);
 		} else if($fields->dataFieldByName('MenuTitle')) {
 			$fields->insertAfter($field, 'MenuTitle');
 		} else {
 			$fields->addFieldToTab('Root.Main', $field);
 		}
-
-		if(Config::inst()->get(__CLASS__, 'remove_content_field') == true) {
-		  $fields->removeByName('Content');
-	  }
 	}
 }

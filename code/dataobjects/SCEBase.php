@@ -8,6 +8,7 @@ class SCEBase extends DataObject {
 		'Title' => 'Varchar(255)',
 		'ShowTitle' => 'Boolean',
 		'SortOrder' => 'Int',
+		'SmallDistance' => 'Boolean',
 	];
 	
 	private static $has_one = [
@@ -46,7 +47,9 @@ class SCEBase extends DataObject {
 			TabSet::create('Root',
 				Tab::create('Main', 'Hauptteil',
 					TextField::create('Title', 'Überschrift'),
-					DropdownField::create('ShowTitle', 'Überschrift anzeigen', [1 => 'Ja', 0 => 'Nein'], 1)
+					DropdownField::create('ShowTitle', 'Überschrift anzeigen', [1 => 'Ja', 0 => 'Nein'], 0),
+					DropdownField::create('SmallDistance', 'Kleiner Abstand', [1 => 'Ja', 0 => 'Nein'], 0)
+						->setDescription('nur den halben Abstand zum oberen Element verwenden')
 				)
 			)
 		);
@@ -79,7 +82,12 @@ class SCEBase extends DataObject {
 		if($this->hasMethod('Image')) {
 			$imgMode = self::config()->get('image_mode');
 			$imgWidth = self::config()->get('image_width');
-			$imgHeight = self::config()->get('image_height');
+
+			if($height = $this->ImageHeight) {
+				$imgHeight = $height;
+			} else {
+				$imgHeight = self::config()->get('image_height');
+			}
 
 			return $this->Image()->$imgMode($imgWidth, $imgHeight);
 		}

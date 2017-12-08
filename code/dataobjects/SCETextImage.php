@@ -30,8 +30,8 @@ class SCETextImage extends SCEBase {
 	  $fields = parent::getCMSFields();
 	  $fields->addFieldsToTab('Root.Main', [
 		  UploadField::create('Image', 'Bild')
-			  ->setFolderName('sce')
-			  ->setDisplayFolderName('sce'),
+			  ->setFolderName('images')
+			  ->setDisplayFolderName('images'),
 		  DropdownField::create('ImagePosition', 'Position des Bildes', [
 			  'left' => 'Links',
 			  'right' => 'Rechts',

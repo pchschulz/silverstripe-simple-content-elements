@@ -1,17 +1,19 @@
 ---
 Name: simple-content-elements
 ---
-SCEExtension:
-  remove_content_field: true
 SCETextImage:
-  image_width: 400
-  image_height: 300
+  image_width: 570
+  image_height: 428
   image_mode: 'Fill'
 SCEImage:
-  image_width: 1024
-  image_height: 400
+  image_width: 1170
+  image_height: 658
   image_mode: 'PaddedImage'
 SCEDescribedImages_Image:
-  image_width: 400
-  image_height: 300
   image_mode: 'Fill'
+  two:
+    image_width: 570
+    image_height: 428
+  three:
+    image_width: 370
+    image_height: 278

@@ -7,6 +7,7 @@ class SCEDescribedImages extends SCEBase {
   private static $db = [
     'ImagesPerRow' => 'Int',
 	  'Lightbox' => 'Boolean',
+	  'ImageHeight' => 'Int',
   ];
 
 	private static $has_many = [
@@ -27,6 +28,8 @@ class SCEDescribedImages extends SCEBase {
 			  3 => 3,
 		  ]),
 		  DropdownField::create('Lightbox', 'In der Lightbox öffnen', [1 => 'Ja', 0 => 'Nein'], 1),
+		  NumericField::create('ImageHeight', 'Höhe der Bilder')
+			  ->setDescription('Wird nur benötigt wenn Sie vom Standardformat abweichen wollen. Dieses beträgt 4:3'),
 		  GridField::create('Images', 'Bilder', $this->Images(), SCEGridConfig::create(30, 'SortOrder')),
 		  LiteralField::create('SaveNotice', '<div class="message notice">Nach dem Speichern können Bilder hinzugefügt werden.</div>')
 	  ]);

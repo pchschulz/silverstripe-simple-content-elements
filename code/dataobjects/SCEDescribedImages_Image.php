@@ -32,8 +32,8 @@ class SCEDescribedImages_Image extends DataObject {
       TabSet::create('Root',
         Tab::create('Main', 'Hauptteil',
           UploadField::create('Image', 'Bild')
-	          ->setFolderName('sce')
-	          ->setDisplayFolderName('sce'),
+	          ->setFolderName('images')
+	          ->setDisplayFolderName('images'),
 	        DropdownField::create('ImagePosition', 'Position des Bildes', [
 		        'top' => 'Oben',
 		        'bottom' => 'Unten',
@@ -50,9 +50,22 @@ class SCEDescribedImages_Image extends DataObject {
   }
 
 	public function ProcessedImage() {
+		$element = $this->Element();
+
 		$imgMode = self::config()->get('image_mode');
-		$imgWidth = self::config()->get('image_width');
-		$imgHeight = self::config()->get('image_height');
+
+		if($element->ImagesPerRow == 2) {
+			$imgWidth = self::config()->get('two')['image_width'];
+			$imgHeight = self::config()->get('two')['image_height'];
+
+		} else if($element->ImagesPerRow == 3) {
+			$imgWidth = self::config()->get('three')['image_width'];
+			$imgHeight = self::config()->get('three')['image_height'];
+		}
+
+		if($height = $element->ImageHeight) {
+			$imgHeight = $height;
+		}
 
 		return $this->Image()->$imgMode($imgWidth, $imgHeight);
 	}

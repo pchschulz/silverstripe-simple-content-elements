@@ -45,8 +45,8 @@ You could set the following inside your yaml config.
 
 **Remove the html editor content field if sce is used**
 ```yaml
-SCEExtension:
-  remove_content_field: true
+MyPage:
+  sce_remove_content_field: true
 ```
 
 **Define image size and mode**
@@ -60,9 +60,13 @@ SCETextImage:
   image_height: 300
   image_mode: 'FocusFill'
 SCEDescribedImages_Image:
-  image_width: 400
-  image_height: 300
-  image_mode: 'FocusFill'
+  image_mode: 'Fill'
+  two:
+    image_width: 570
+    image_height: 428
+  three:
+    image_width: 370
+    image_height: 278
 ```
 
 ### Extending / Your own elements

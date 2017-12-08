@@ -6,6 +6,7 @@ class SCEImage extends SCEBase {
 
   private static $db = [
   	'Lightbox' => 'Boolean',
+	  'ImageHeight' => 'Int',
   ];
   
   private static $has_one = [
@@ -26,8 +27,10 @@ class SCEImage extends SCEBase {
 	  $fields = parent::getCMSFields();
 	  $fields->addFieldsToTab('Root.Main', [
 	  	UploadField::create('Image', 'Bild')
-		    ->setFolderName('sce')
-		    ->setDisplayFolderName('sce'),
+		    ->setFolderName('images')
+		    ->setDisplayFolderName('images'),
+		  NumericField::create('ImageHeight', 'Höhe des Bilds')
+		    ->setDescription('Wird nur benötigt wenn Sie vom Standardformat abweichen wollen. Dieses beträgt 16:9'),
 		  DropdownField::create('Lightbox', 'In der Lightbox öffnen', [1 => 'Ja', 0 => 'Nein'], 1),
 	  ]);
 
