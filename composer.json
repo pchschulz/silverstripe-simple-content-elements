@@ -13,7 +13,7 @@
   "require": {
     "php": ">=5.3.3",
     "silverstripe/cms": "3.x@stable",
-    "symbiote/silverstripe-gridfieldextensions": "1.*"
+    "symbiote/silverstripe-gridfieldextensions": "2.*"
   },
   "extra": {
     "installer-name": "simple-content-elements"
