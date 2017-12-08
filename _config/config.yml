@@ -17,3 +17,6 @@ SCEDescribedImages_Image:
   three:
     image_width: 370
     image_height: 278
+SCEAccordion_Item:
+  extensions:
+    - SCEExtension

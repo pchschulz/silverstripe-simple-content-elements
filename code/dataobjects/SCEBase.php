@@ -13,6 +13,7 @@ class SCEBase extends DataObject {
 	
 	private static $has_one = [
 	  'Page' => 'Page',
+		'AccordionItem' => 'SCEAccordion_Item',
 	];
 
 	private static $default_sort = 'SortOrder';

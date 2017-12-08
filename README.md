@@ -10,6 +10,9 @@ Simply add the extension to the desired page type
 MyPage:
   extensions:
     - SCEExtension
+MyPage_Controller:
+  extensions:
+    - SCEControllerExtension
 ```
 
 ### Usage with dataobjects
@@ -21,7 +24,7 @@ MyObject:
     - SCEExtension
 ```
 
-After that you need to extend ``SCEElement`` and add a ``has_one`` relation to your dataobject
+After that you need to extend ``SCEBase`` and add a ``has_one`` relation to your dataobject. Don't forget to include the js file on the page you would like to display the dataobjects
 
 ```php
 private static $has_one = [
