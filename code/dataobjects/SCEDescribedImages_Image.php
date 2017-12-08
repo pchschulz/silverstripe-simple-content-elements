@@ -8,6 +8,7 @@ class SCEDescribedImages_Image extends DataObject {
   	'Content' => 'HTMLText',
 	  'SortOrder' => 'Int',
 	  'ImagePosition' => 'Varchar(10)',
+	  'Link' => 'NamedLinkField',
   ];
 
   private static $has_one = [
@@ -38,6 +39,7 @@ class SCEDescribedImages_Image extends DataObject {
 		        'top' => 'Oben',
 		        'bottom' => 'Unten',
 	        ]),
+	        NamedLinkFormField::create('Link', 'Link'),
           HtmlEditorField::create('Content', 'Beschreibung')
 	          ->setRows(20)
         )
