@@ -6,7 +6,7 @@ class SCEDescribedImages extends SCEBase {
 
   private static $db = [
     'ImagesPerRow' => 'Int',
-	  'Lightbox' => 'Boolean',
+	  'LightboxOrLink' => 'Varchar(25)',
 	  'ImageHeight' => 'Int',
   ];
 
@@ -27,7 +27,10 @@ class SCEDescribedImages extends SCEBase {
 	  		2 => 2,
 			  3 => 3,
 		  ]),
-		  DropdownField::create('Lightbox', 'In der Lightbox öffnen', [1 => 'Ja', 0 => 'Nein'], 1),
+		  DropdownField::create('LightboxOrLink', 'Aktion', [
+		  	'lightbox' => 'Lightbox',
+			  'link' => 'Link'
+		  ], 'lightbox')->setEmptyString('(keine)'),
 		  NumericField::create('ImageHeight', 'Höhe der Bilder')
 			  ->setDescription('Wird nur benötigt wenn Sie vom Standardformat abweichen wollen. Dieses beträgt 4:3'),
 		  GridField::create('Images', 'Bilder', $this->Images(), SCEGridConfig::create(30, 'SortOrder')),

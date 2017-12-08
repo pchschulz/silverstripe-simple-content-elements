@@ -3,13 +3,13 @@
 	<% loop $Images %>
 		<div class="describedimage">
 			<% if $ImagePosition == 'top' %>
-				<% include SCEProcessedImage Lightbox=$Up.Lightbox %>
+				<% include SCEProcessedImage LightboxOrLink=$Up.LightboxOrLink %>
 			<% end_if %>
 			<div class="sce__text">
 				$Content
 			</div>
 			<% if $ImagePosition == 'bottom' %>
-				<% include SCEProcessedImage Lightbox=$Up.Lightbox %>
+				<% include SCEProcessedImage LightboxOrLink=$Up.LightboxOrLink %>
 			<% end_if %>
 		</div>
 	<% end_loop %>
