@@ -33,9 +33,19 @@ class SCEBase extends DataObject {
 	}
 
 	public function canCreate($member = null) {
-	  $can = Permission::check(['ADMIN', 'CMS_ACCESS']);
+	  return Controller::curr()->currentPage()->canCreate($member);
+	}
 
-	  return $can;
+	public function canView($member = null) {
+		return Controller::curr()->currentPage()->canView($member);
+	}
+
+	public function canEdit($member = null) {
+		return Controller::curr()->currentPage()->canEdit($member);
+	}
+
+	public function canDelete($member = null) {
+		return Controller::curr()->currentPage()->canDelete($member);
 	}
 
 	public function getCMSValidator() {

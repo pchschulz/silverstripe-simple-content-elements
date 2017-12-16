@@ -18,7 +18,23 @@ class SCEAccordion_Item extends DataObject {
 	  $requiredFields = RequiredFields::create('Title');
 	  return $requiredFields;
 	}
-	
+
+	public function canCreate($member = null) {
+		return Controller::curr()->currentPage()->canCreate($member);
+	}
+
+	public function canView($member = null) {
+		return Controller::curr()->currentPage()->canView($member);
+	}
+
+	public function canEdit($member = null) {
+		return Controller::curr()->currentPage()->canEdit($member);
+	}
+
+	public function canDelete($member = null) {
+		return Controller::curr()->currentPage()->canDelete($member);
+	}
+
 	public function getCMSFields() {
 	  $fields = FieldList::create(
 	    TabSet::create('Root',

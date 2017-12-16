@@ -27,6 +27,22 @@ class SCEDescribedImages_Image extends DataObject {
     $requiredFields = RequiredFields::create('Content', 'Image');
     return $requiredFields;
   }
+
+	public function canCreate($member = null) {
+		return Controller::curr()->currentPage()->canCreate($member);
+	}
+
+	public function canView($member = null) {
+		return Controller::curr()->currentPage()->canView($member);
+	}
+
+	public function canEdit($member = null) {
+		return Controller::curr()->currentPage()->canEdit($member);
+	}
+
+	public function canDelete($member = null) {
+		return Controller::curr()->currentPage()->canDelete($member);
+	}
   
   public function getCMSFields() {
     $fields = FieldList::create(
