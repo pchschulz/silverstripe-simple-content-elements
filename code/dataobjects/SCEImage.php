@@ -31,7 +31,7 @@ class SCEImage extends SCEBase {
 			  'lightbox' => 'Lightbox',
 			  'link' => 'Link'
 		  ], 'lightbox')->setEmptyString('(keine)'),
-		  $linkField = DisplayLogicWrapper::create(NamedLinkFormField::create('Link', 'Link')),
+		  $linkField = DisplayLogicWrapper::create(NamedLinkFormField::create('Link', 'Link'))->setName('LinkWrapper'),
 	  	UploadField::create('Image', 'Bild')
 		    ->setFolderName('images')
 		    ->setDisplayFolderName('images'),
