@@ -10,6 +10,8 @@ class SCEAccordion_Item extends DataObject {
 		'SortOrder' => 'Int',
 	];
 
+	private static $default_sort = 'SortOrder';
+
 	private static $has_one = [
 	  'Accordion' => 'SCEAccordion',
 	];
